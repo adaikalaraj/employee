@@ -1,0 +1,9 @@
+<h1>{{ object.department_name }} {% if object.manager %} - {{object.manager}}{% endif %}</h1>
+<ul>
+{% for employee in object.employee_set.all %}
+  <li>{{employee.employee_name}}</li>
+{% empty %}
+    <li>No Employees</li>
+{% endfor %}
+</ul>
+<a href="{% url 'departments' %}">Back</a>
